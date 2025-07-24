@@ -205,19 +205,19 @@
 
     updateHotspot('hotspot-dot+X-Y-Z', center.x + x2, center.y - y2, center.z - z2);
     updateHotspot('hotspot-dim+X-Z', center.x + x2 * 1.2, center.y, center.z - z2 * 1.2);
-    modelViewer.querySelector('[slot="hotspot-dim+X-Z"]').textContent = `${(size.y * 800).toFixed(0)} mm`;
+    modelViewer.querySelector('[slot="hotspot-dim+X-Z"]').textContent = `${(size.y * 1000).toFixed(0)} mm`;
 
     updateHotspot('hotspot-dot+X+Y-Z', center.x + x2, center.y + y2, center.z - z2);
     updateHotspot('hotspot-dim+Y-Z', center.x, center.y + y2 * 1.1, center.z - z2 * 1.1);
-    modelViewer.querySelector('[slot="hotspot-dim+Y-Z"]').textContent = `${(size.x * 800).toFixed(0)} mm`;
+    modelViewer.querySelector('[slot="hotspot-dim+Y-Z"]').textContent = `${(size.x * 1000).toFixed(0)} mm`;
 
     updateHotspot('hotspot-dot-X+Y-Z', center.x - x2, center.y + y2, center.z - z2);
     updateHotspot('hotspot-dim-X-Z', center.x - x2 * 1.2, center.y, center.z - z2 * 1.2);
-    modelViewer.querySelector('[slot="hotspot-dim-X-Z"]').textContent = `${(size.y * 800).toFixed(0)} mm`;
+    modelViewer.querySelector('[slot="hotspot-dim-X-Z"]').textContent = `${(size.y * 1000).toFixed(0)} mm`;
 
     updateHotspot('hotspot-dot-X-Y-Z', center.x - x2, center.y - y2, center.z - z2);
     updateHotspot('hotspot-dim-X-Y', center.x - x2 * 1.2, center.y - y2 * 1.1, center.z);
-    modelViewer.querySelector('[slot="hotspot-dim-X-Y"]').textContent = `${(size.z * 800).toFixed(0)} mm`;
+    modelViewer.querySelector('[slot="hotspot-dim-X-Y"]').textContent = `${(size.z * 1000).toFixed(0)} mm`;
 
     updateHotspot('hotspot-dot-X-Y+Z', center.x - x2, center.y - y2, center.z + z2);
 
