@@ -108,6 +108,12 @@
     camera-controls touch-action="pan-y"
     tone-mapping="neutral"
     environment-image="neutral"
+    skybox-image="https://raw.githubusercontent.com/google/model-viewer/master/packages/shared-assets/environments/spruit_sunrise_1k_HDR.hdr" <!-- HDRI Işık -->
+    exposure="1.2"
+    shadow-intensity="1.5"
+    shadow-softness="0.5"
+
+    
     style="width: 100%; height: 100%;">
     
     <button slot="hotspot-dot+X-Y+Z" class="dot" data-position="1 -1 1" data-normal="1 0 0"></button>
@@ -236,11 +242,26 @@
         const [material] = modelViewer.model.materials;
 
         material.pbrMetallicRoughness.setBaseColorFactor([r, g, b, 1]);
-        material.pbrMetallicRoughness.setMetallicFactor(1.0);  // tam metal
-        material.pbrMetallicRoughness.setRoughnessFactor(0.0); // ayna gibi
+        material.pbrMetallicRoughness.setMetallicFactor(0.7);  // tam metal
+        material.pbrMetallicRoughness.setRoughnessFactor(0.3); // ayna gibi
+
+       if (!material.normalTexture) {
+       material.normalTexture = createNormalTexture(); // Kendi normal map'iniz
+     }   
       });
     });
   });
+
+// AR modunda gerçek zamanlı ışık güncellemesi
+modelViewer.addEventListener('ar-tracking', (event) => {
+  if (event.detail.status === 'tracking') {
+    modelViewer.environmentIntensity = 1.5; // Ortam ışık şiddeti
+    modelViewer.exposure = 1.3; // Pozlama ayarı
+  }
+});
+
+
+  
 </script>
 
 </body>
